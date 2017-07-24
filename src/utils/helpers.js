@@ -1,11 +1,12 @@
 // Here we will utilize the axios library to perform GET/POST requests
 import axios from 'axios';
 
-var nytKey = "b9f91d369ff59547cd47b931d8cbc56b";
+var nytKey = "c426dbbb98ee45d7a5fe165d772f7df9";
 // Exporting an object with methods for retrieving and posting data to our API
 var helper = {
 
 	nytQuery: function(topic, startYear, endYear) {
+		console.log("TOPIC: " + topic);
 		var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json" + nytKey + "q=" + topic + "&begin_date" + startYear + "0101&end_date" + endYear + "0101";
 		return axios.get(queryURL)
 		.then(function(response) {
@@ -23,6 +24,7 @@ var helper = {
 					counter++;
 				}
 			}
+			console.log(results);
 			return results;
 		})
 	},
