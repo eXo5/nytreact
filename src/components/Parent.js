@@ -25,81 +25,54 @@ class Parent extends React.Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
 }
 //arrow functions work as well.
-    handleChange = (event) => {
-    	var newState = {};
-    	newState[event.target.id] = event.target.value;
-    	this.setState(newState);
-    }
+    // handleChange = (event) => {
+    // 	var newState = {};
+    // 	newState[event.target.id] = event.target.value;
+    // 	this.setState(newState);
+    // }
+
 //how to write class functions without arrow functions - don't forget to bind them
    //  handleChange(event){
-			// var newState = {};
-   //  	newState[event.target.id] = event.target.value;
-   //  	this.setState(newState);
+		// 		var newState = {};
+   	//  	newState[event.target.id] = event.target.value;
+   	//  	this.setState(newState);
    //  }
 
     // componentDidMount() {
     // 	//Ajax can happen here.
     // }
 
-
     handleSubmit = (event, topic, startYear, endYear) => {
       event.preventDefault();
       console.log(topic);
       console.log(startYear)
       console.log(endYear)
-debugger;
-      console.log(event.target);
       helpers.nytQuery(topic, startYear, endYear)
-      .then(function(response){ 
-      	//Holy shit.
-      })
+      .then(response => {
+      	this.setState({results: response});
+      	console.log(this.state.results);
+      });
     }
 
   render() {
     return (	  
-	     {/*PUT YOUR FORM AND YOUR HANDLE CHANGE AND HANDLE SUBMIT IN YOUR CHILD.  */}
-	      <div className="row">
+	     
+
 	      
-	      	<div className="col s8">
-	      		<h3>Please define your search</h3>
 
-
-		      		<div className="row">
-		      			<form className="col s12">
-		      				<div className="input-field">
-		      					<label htmlFor="topic">Query Topic</label>
-		      					
-		      					<input id="topic" value={this.state.topic} onChange={this.handleChange} type="text" className="validate" />
-		      					
-		      				</div>
-		      				<div className="input-field">
-		      					<input id="startYear" value={this.state.startYear} onChange={this.handleChange} type="text" className="validate" />
-		      					<label htmlFor="startYear">Start Year</label>
-		      				</div>	
-		      				<div className="input-field">
-		      					<input id="endYear" value={this.state.endYear} onChange={this.handleChange} type="text" className="validate" />
-		      					<label htmlFor="endYear">End Year</label>
-		      				</div>
 
 		      				<div className="child">
-		      					<Child updateParent={this.handleSubmit}/>
+		      					<Child handleSubmit={this.handleSubmit} results={this.results}/>
 		      				</div>
 
-		      			</form>
 
-	      			</div>
-	      		<h5>Watch your query entries populate in real-time!</h5> 	
-						<p>Your query: {this.state.topic}</p>
-	      		<p>Your start year:{this.state.startYear}</p>
-	      		<p>Your end year: {this.state.endYear}</p>
-	      		</div>
-	      	</div>				
+				
 	    
 
 	 
 			
 	      					
-	      )
+	  )
   }
 }
 
