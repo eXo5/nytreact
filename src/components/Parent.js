@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 
 //import parentcss from 'style.css';
 import { Button, Card, Row, Col } from 'react-materialize';
-import Child from './Child';
+import Form from './Form';
+import Results from './Child';
 
 import helpers from '../utils/helpers';
 
@@ -45,8 +46,8 @@ class Parent extends React.Component {
     handleSubmit = (event, topic, startYear, endYear) => {
       event.preventDefault();
       console.log(topic);
-      console.log(startYear)
-      console.log(endYear)
+      console.log(startYear);
+      console.log(endYear);
       helpers.nytQuery(topic, startYear, endYear)
       .then(response => {
       	this.setState({results: response});
@@ -58,15 +59,19 @@ class Parent extends React.Component {
     return (	  
 	     
 
-	      
 
+		<div className="container">
 
-		      				<div className="child">
-		      					<Child handleSubmit={this.handleSubmit} results={this.results}/>
-		      				</div>
+			<div className="child">
+				<Form handleSubmit={this.handleSubmit} />
+			</div>
 
+			<div className="results">
+				<Results resultsArray={this.state.results} />
+			</div>	
 
-				
+		</div>
+									
 	    
 
 	 

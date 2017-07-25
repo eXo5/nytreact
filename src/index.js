@@ -1,7 +1,7 @@
 // Include the Main React Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import http from 'http';
+
 // Include the main Parent Component
 import Parent from './components/Parent';
 
