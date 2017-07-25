@@ -55,6 +55,11 @@ class Parent extends React.Component {
       });
     }
 
+		handleClick = (index) => {
+	  console.log(this.state.results[index].headline.main);
+	  //handler.postArticle(this.state.results[index].headline.main, this.state...)
+	 	 }
+
   render() {
     return (	  
 	     
@@ -67,7 +72,7 @@ class Parent extends React.Component {
 			</div>
 
 			<div className="results">
-				<Results resultsArray={this.state.results} />
+				<Results resultsArray={this.state.results} handleClick={this.handleClick} />
 			</div>	
 
 		</div>

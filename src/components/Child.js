@@ -5,16 +5,20 @@ import helpers from '../utils/helpers';
 
 class Results extends React.Component {
   constructor(props) {
-    super(props)
-
-
-
+    super(props);
 }
 
-componentDidMount() {
-  console.log("Hey look at me!!");
-}
+// componentDidMount() {
+//   console.log("Hey look at me!!");
+//}
 
+handleClick = event => {
+
+  console.log(event.target.id);
+
+  this.props.handleClick(event.target.id);
+
+}
 // componentDidUpdate() {
 //   this.props.resultsArray.map(function(search, i) {
 //     console.log(search)
@@ -22,15 +26,17 @@ componentDidMount() {
 // }
 
 render() {
-  let result = this.props.resultsArray.map(function(element){
-    return (<p>{element.headline.main}</p>)
-  })
+  let headline = this.props.resultsArray.map((element, i) => {
+    return (
+      <div key={i} className='row'><p id={i} onClick={this.handleClick} >{element.headline.main}</p></div>
+      )
+  });
+  
   return (
 
       <Row>
         <h1>Testing</h1>
-          <p> {result}
-          </p>
+          <p> {headline} </p>
        </Row> 
         
 

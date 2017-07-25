@@ -18,7 +18,7 @@ var helper = {
 				if (counter < 5) {
 					
 			
-
+					//if your result has a headline && pubdate && && web_url
 				if (responseResults[counter].headline.main && responseResults[counter].pub_date && responseResults[counter].web_url){
 					results.push(responseResults[counter]);	
 				}
