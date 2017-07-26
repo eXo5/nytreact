@@ -24,7 +24,15 @@ app.use(express.static("build"));
 // -------------------------------------------------
 
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/MERN");
+
+var databaseUri = "mongodb://localhost/scrapMetal";
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+  mongoose.connect("mongodb://localhost/MERN");
+}
+
 var db = mongoose.connection;
 
 db.on("error", function(err) {
