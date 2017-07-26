@@ -58,6 +58,15 @@ app.get("/api/articles", function(req, res) {
   });
 });
 
+app.delete('/api/delete/:idB', function(req, res) {
+  console.log(req.params.idB);
+  Article.findByIdAndRemove(req.params.idB, function(err, response){
+    if (err) {console.log(err)}
+      else {console.log("Article Removed")}
+  })
+})
+
+
 // This is the route we will send POST requests to save each click.
 // We will call this route the moment the "click" or "reset" button is pressed.
 app.post("/api/saved", function(req, res) {

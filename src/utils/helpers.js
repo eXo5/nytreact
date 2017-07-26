@@ -41,6 +41,13 @@ var helper = {
 	getArticles: function(){
 		return axios.get("api/articles/")
 	},
+
+	deleteArticle: function(event, idB) {
+		console.log(idB);
+		axios.delete("api/delete/" + idB, function(res){
+			console.log(res);
+		})
+	},
 	//Thanks for the template
   // Returns a promise object we can .then() off inside our Parent component
   getClicks: function() {

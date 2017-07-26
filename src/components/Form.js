@@ -49,7 +49,7 @@ import {Link} from 'react-router-dom';
                     <label htmlFor="endYear">End Year</label>
                   </div>
                   
-                  <Button onClick={(event) => {this.props.handleSubmit(event, this.state.topic, this.state.startYear, this.state.endYear )}} className="submit" type="submit">Submit Button</Button>
+                  <Button onClick={(event) => {this.props.handleSubmit(event, this.state.topic, this.state.startYear, this.state.endYear )}} className="submit" type="submit"><Link to="/results">Submit</Link></Button>
                 
                 </form>
                 
@@ -59,6 +59,7 @@ import {Link} from 'react-router-dom';
             <p>Your query: {this.state.topic}</p>
             <p>Your start year:{this.state.startYear}</p>
             <p>Your end year: {this.state.endYear}</p>
+            <Button><Link to="/saved">Saved Articles</Link></Button>
             </div>
 
 

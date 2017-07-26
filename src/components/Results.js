@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col, Button} from 'react-materialize';
-
+import {Link} from 'react-router-dom';
 import '../style.css'; 
 import helpers from '../utils/helpers';
 
@@ -29,7 +29,7 @@ handleClick = event => {
 render() {
   let headline = this.props.resultsArray.map((element, i) => {
     return (
-      <div key={i} className='row'><p id={i} className="articleName" onClick={this.handleClick}>{element.headline.print_headline}</p><p className="pubIndent">Published: {element.pub_date}</p><a href={`${element.web_url}!`}>{element.headline.print_headline}</a><hr /></div>
+      <div key={i} className='row'><p id={i} className="articleName" onClick={this.handleClick}>{element.headline.print_headline}</p><p className="pubIndent">Published: {element.pub_date}</p><a className="pubIndent" href={`${element.web_url}!`}>{element.web_url}</a><hr /></div>
       )
   });
   
@@ -38,8 +38,11 @@ render() {
       <Row>
         <h3>Articles</h3>
           <div> {headline} </div>
-       </Row> 
-        
+       <div className="linkToSaved">
+          <p>Would you like to see the Articles in the Database?</p>
+          <Button><Link to="/saved">DATABASE</Link></Button>
+        </div>  
+       </Row>
 
     )
   }

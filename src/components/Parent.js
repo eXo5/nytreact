@@ -6,7 +6,7 @@ import { Button, Card, Row, Col } from 'react-materialize';
 import Form from './Form';
 import Results from './Results';
 import Saved from './Saved';
-import helpers from '../utils/helpers';
+import helper from '../utils/helpers';
 
 class Parent extends React.Component {
   constructor() {
@@ -14,7 +14,7 @@ class Parent extends React.Component {
     super();
     //define Parent state
     this.state = {
-    //  
+    
        results: []
      };
 //bind this state to a handler function(s)
@@ -44,7 +44,7 @@ class Parent extends React.Component {
       console.log(topic);
       console.log(startYear);
       console.log(endYear);
-      helpers.nytQuery(topic, startYear, endYear)
+      helper.nytQuery(topic, startYear, endYear)
       .then(response => {
       	this.setState({results: response});
       	console.log(this.state.results);
@@ -53,7 +53,7 @@ class Parent extends React.Component {
 
 		handleClick = (index) => {
 	  console.log(this.state.results[index]);
-	  helpers.postArticle(this.state.results[index].headline.print_headline, this.state.results[index].pub_date, this.state.results[index].web_url)
+	  helper.postArticle(this.state.results[index].headline.print_headline, this.state.results[index].pub_date, this.state.results[index].web_url)
 	 	 }
 
   render() {
@@ -68,14 +68,14 @@ class Parent extends React.Component {
 
 
 
-				<Results resultsArray={this.state.results} handleClick={this.handleClick} />
+				
 
-
-		    <Saved  />
+					
+		  
 									
-	    
 
-	 <Route exact path="/results" components={{resultsArray:this.state.results, handleClick:this.handleClick}} />
+		<Route exact path="/saved" render={()=> <Saved />} />
+	 <Route exact path="/results" render={() =>  <Results resultsArray={this.state.results} handleClick={this.handleClick} />} />
 			
 
      </div>  					
@@ -87,3 +87,8 @@ export default Parent;
 
      // <Route exact path="/" component={Form} handleClick={this.handleSubmit}/>
      // <Route exact path="/results" component={Results} resultsArray={this.state.results} handleClick={this.handleClick}/> 
+
+
+     //  <Saved  />
+
+     //<Results resultsArray={this.state.results} handleClick={this.handleClick} />
