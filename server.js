@@ -3,8 +3,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
-// Require Click schema
+var path = require("path");
+// Require Article schema
 var Article = require("./models/nytArticles");
 
 // Create a new express app
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static("build"));
+app.use(express.static(path.resolve("build")));
 
 // -------------------------------------------------
 
@@ -47,7 +47,7 @@ db.once("open", function() {
 
 // Main "/" Route. This will redirect the user to our rendered React application
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/build/index.html");
+  res.sendFile(path.resolve("/build/index.html"));
 });
 
 // This is the route we will send GET requests to retrieve our most recent click data.
