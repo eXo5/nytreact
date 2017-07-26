@@ -25,12 +25,12 @@ app.use(express.static(path.resolve("build")));
 
 // MongoDB configuration (Change this URL to your own DB)
 
-//heroku sets your dbUri
+ 
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
 else {
-  mongoose.connect("mongodb://localhost/MERN");
+  mongoose.connect("mongodb://heroku_np3sp6jp:vqfk89sq4lsappq94jjpa5ipc1@ds153719.mlab.com:53719/heroku_np3sp6jp");
 }
 
 var db = mongoose.connection;
