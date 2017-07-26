@@ -25,7 +25,7 @@ app.use(express.static("build"));
 
 // MongoDB configuration (Change this URL to your own DB)
 
-var databaseUri = "mongodb://localhost/scrapMetal";
+//heroku sets your dbUri
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
@@ -47,7 +47,7 @@ db.once("open", function() {
 
 // Main "/" Route. This will redirect the user to our rendered React application
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 
 // This is the route we will send GET requests to retrieve our most recent click data.

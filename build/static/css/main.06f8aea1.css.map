@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,WACC,gBAAkB,CAGnB,aACC,2BACA,mBAAqB","file":"static/css/main.06f8aea1.css","sourcesContent":[".pubIndent {\r\n\ttext-indent: 10px;\r\n}\r\n\r\n.articleName {\r\n\tdisplay: -ms-inline-flexbox;\r\n\tdisplay: inline-flex;\r\n}\n\n\n// WEBPACK FOOTER //\n// ./src/style.css"],"sourceRoot":""}
