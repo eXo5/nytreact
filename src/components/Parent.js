@@ -58,7 +58,7 @@ class Parent extends React.Component {
 
   render() {
     return (	  
-	     
+	     <div>
 
 
 		<div className="container">
@@ -78,6 +78,7 @@ class Parent extends React.Component {
 	 <Route exact path="/results" render={() =>  <Results resultsArray={this.state.results} handleClick={this.handleClick} />} />
 			
 
+       </div>
      </div>  					
 	  )
   }
