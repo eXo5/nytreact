@@ -5,7 +5,7 @@ import { Route, Link } from 'react-router-dom';
 import { Button, Card, Row, Col } from 'react-materialize';
 import Form from './Form';
 import Results from './Results';
-
+import Saved from './Saved';
 import helpers from '../utils/helpers';
 
 class Parent extends React.Component {
@@ -71,7 +71,7 @@ class Parent extends React.Component {
 				<Results resultsArray={this.state.results} handleClick={this.handleClick} />
 
 
-		
+		    <Saved  />
 									
 	    
 

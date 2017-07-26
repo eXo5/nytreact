@@ -18,7 +18,7 @@ var helper = {
 				if (counter < 5) {
 					
 			
-					//if your result has a headline && pubdate && && web_url
+					//if result has a headline && pubdate && && web_url
 				if (responseResults[counter].headline.main && responseResults[counter].pub_date && responseResults[counter].web_url){
 					results.push(responseResults[counter]);	
 				}
@@ -39,8 +39,9 @@ var helper = {
 	},
 
 	getArticles: function(){
-		return axios.get("/articles/")
+		return axios.get("api/articles/")
 	},
+	//Thanks for the template
   // Returns a promise object we can .then() off inside our Parent component
   getClicks: function() {
     return axios.get("/api");
