@@ -31,8 +31,8 @@ var helper = {
 		})
 	},
 
-	postArticle: function(title, date, url) {
-		axios.post("api/saved", {title: title, date: date, url: url})
+	postArticle: function(print_headline, date, web_url) {
+		axios.post("api/saved", {headline: print_headline, published: date, url: web_url})
 		.then(function(results){
 			console.log();
 		})

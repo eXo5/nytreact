@@ -1,12 +1,10 @@
-
+//import dependencies and components
 import React from 'react';
-
 import ReactDOM from 'react-dom';
-
-//import parentcss from 'style.css';
+import { Route, Link } from 'react-router-dom';
 import { Button, Card, Row, Col } from 'react-materialize';
 import Form from './Form';
-import Results from './Child';
+import Results from './Results';
 
 import helpers from '../utils/helpers';
 
@@ -16,16 +14,14 @@ class Parent extends React.Component {
     super();
     //define Parent state
     this.state = {
-    //   topic: "",
-    //   startYear: "",
-    //   endYear: "",
+    //  
        results: []
      };
 //bind this state to a handler function(s)
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
 }
-//arrow functions work as well.
+//arrow functions create implicit binding to this.
     // handleChange = (event) => {
     // 	var newState = {};
     // 	newState[event.target.id] = event.target.value;
@@ -37,7 +33,7 @@ class Parent extends React.Component {
 		// 		var newState = {};
    	//  	newState[event.target.id] = event.target.value;
    	//  	this.setState(newState);
-   //  }
+   //  }.bind(this)
 
     // componentDidMount() {
     // 	//Ajax can happen here.
@@ -56,8 +52,8 @@ class Parent extends React.Component {
     }
 
 		handleClick = (index) => {
-	  console.log(this.state.results[index].headline.main);
-	  //handler.postArticle(this.state.results[index].headline.main, this.state...)
+	  console.log(this.state.results[index]);
+	  helpers.postArticle(this.state.results[index].headline.print_headline, this.state.results[index].pub_date, this.state.results[index].web_url)
 	 	 }
 
   render() {
@@ -67,23 +63,27 @@ class Parent extends React.Component {
 
 		<div className="container">
 
-			<div className="child">
+
 				<Form handleSubmit={this.handleSubmit} />
-			</div>
 
-			<div className="results">
+
+
 				<Results resultsArray={this.state.results} handleClick={this.handleClick} />
-			</div>	
 
-		</div>
+
+		
 									
 	    
 
-	 
+	 <Route exact path="/results" components={{resultsArray:this.state.results, handleClick:this.handleClick}} />
 			
-	      					
+
+     </div>  					
 	  )
   }
 }
 
 export default Parent;
+
+     // <Route exact path="/" component={Form} handleClick={this.handleSubmit}/>
+     // <Route exact path="/results" component={Results} resultsArray={this.state.results} handleClick={this.handleClick}/> 

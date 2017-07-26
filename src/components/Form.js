@@ -3,7 +3,7 @@ import React from 'react';
 import {Button} from 'react-materialize';
 // Here we include all of the sub-components
 // import GrandChild from './GrandChild';
-
+import {Link} from 'react-router-dom';
 // Create the Child Component
  class Form extends React.Component {
    constructor(){
@@ -48,7 +48,9 @@ import {Button} from 'react-materialize';
                     <input id="endYear" value={this.state.endYear} onChange={this.handleChange} type="text" className="validate" />
                     <label htmlFor="endYear">End Year</label>
                   </div>
+                  
                   <Button onClick={(event) => {this.props.handleSubmit(event, this.state.topic, this.state.startYear, this.state.endYear )}} className="submit" type="submit">Submit Button</Button>
+                
                 </form>
                 
 
