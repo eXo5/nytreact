@@ -32,19 +32,19 @@ var helper = {
 	},
 
 	postArticle: function(print_headline, date, web_url) {
-		axios.post("api/saved", {headline: print_headline, published: date, url: web_url})
+		axios.post("/api/saved", {headline: print_headline, published: date, url: web_url})
 		.then(function(results){
 			console.log();
 		})
 	},
 
 	getArticles: function(){
-		return axios.get("api/articles/")
+		return axios.get("/api/articles/")
 	},
 
 	deleteArticle: function(event, idB) {
 		console.log(idB);
-		axios.delete("api/delete/" + idB, function(res){
+		axios.delete("/api/delete/" + idB, function(res){
 			console.log(res);
 		})
 	},

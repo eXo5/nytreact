@@ -25,7 +25,7 @@ app.use(express.static(path.resolve("build")));
 
 // MongoDB configuration (Change this URL to your own DB)
 
- 
+
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
