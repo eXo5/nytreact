@@ -30,7 +30,7 @@ if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
 else {
-  mongoose.connect("mongodb://heroku_np3sp6jp:vqfk89sq4lsappq94jjpa5ipc1@ds153719.mlab.com:53719/heroku_np3sp6jp");
+  mongoose.connect("mongodb://localhost/MERN");
 }
 
 var db = mongoose.connection;
